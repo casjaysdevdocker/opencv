@@ -16,7 +16,13 @@ RUN mkdir -p /bin/ /config/ /data/ && \
   echo "http://dl-cdn.alpinelinux.org/alpine/$alpine_version/community" >> /etc/apk/repositories && \
   echo "http://dl-cdn.alpinelinux.org/alpine/$alpine_version/testing" >> /etc/apk/repositories && \
   apk update -U --no-cache && \
-  apk add --no-cache opencv
+  apk add --no-cache \
+  py3-opencv \
+  opencv \
+  opencv-dev \
+  python3 \
+  py3-pip && \
+  ln -sf "/usr/bin/python3" "/usr/bin/python"
 
 COPY ./bin/. /usr/local/bin/
 COPY ./config/. /config/

@@ -119,7 +119,7 @@ healthcheck) # Docker healthcheck
 
 *) # Execute primary command
   if [ $# -eq 0 ]; then
-    python -c "import cv2;print(cv2.VideoCapture(0).isOpened())"
+    python3 -c "import cv2;print(cv2.VideoCapture(0).isOpened())"
   else
     __exec_bash "/bin/bash"
   fi
